@@ -8,14 +8,14 @@ public class Principal implements BaseLeaveApprover{
 
 
     @Override
-    public void approveLeave(int days) {
+    public void approveLeave(LeaveRequest leaveRequest) {
 
-        if (days>=2 && days<=7){
-            System.out.println("Your leave has been approved by Principal");
+        if (leaveRequest.getLeave_Days()>=2 && leaveRequest.getLeave_Days()<=7){
+            System.out.println("Your "+ "("+leaveRequest.getName()+")"+ "leave has been approved by Principal");
         }
 
         else{
-            nextHigherApprover.approveLeave(days);
+            nextHigherApprover.approveLeave(leaveRequest);
         }
 
     }

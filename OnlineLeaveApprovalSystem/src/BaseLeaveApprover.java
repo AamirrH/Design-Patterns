@@ -1,6 +1,6 @@
 public interface BaseLeaveApprover {
 
-    void approveLeave(int days);
+    void approveLeave(LeaveRequest leaveRequest);
 
 
 }
