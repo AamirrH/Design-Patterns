@@ -1,4 +1,6 @@
-public class HeadOfDepartment implements BaseLeaveApprover{
+package Singleton_and_Chain_of_Responsibility;
+
+public class HeadOfDepartment implements BaseLeaveApprover {
 
     private final BaseLeaveApprover higherApprover;
 

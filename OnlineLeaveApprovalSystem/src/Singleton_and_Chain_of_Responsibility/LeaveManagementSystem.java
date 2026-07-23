@@ -1,3 +1,5 @@
+package Singleton_and_Chain_of_Responsibility;
+
 public class LeaveManagementSystem {
 
     private static LeaveManagementSystem leaveManagementSystemInstance = null;
@@ -23,7 +25,7 @@ public class LeaveManagementSystem {
 
     }
 
-    public void sendForApproval(LeaveRequest leaveRequest,BaseLeaveApprover baseLeaveApprover){
+    public void sendForApproval(LeaveRequest leaveRequest, BaseLeaveApprover baseLeaveApprover){
         baseLeaveApprover.approveLeave(leaveRequest);
 
     }
