@@ -1,4 +1,4 @@
-package Singleton_and_Chain_of_Responsibility;
+package factory_and_proxy_design_pattern_lab_2;
 
 public class LeaveManagementSystem {
 
@@ -40,3 +40,4 @@ public class LeaveManagementSystem {
 
 
 }
+

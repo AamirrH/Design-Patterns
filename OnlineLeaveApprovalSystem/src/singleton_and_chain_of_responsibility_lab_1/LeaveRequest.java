@@ -1,4 +1,4 @@
-package Singleton_and_Chain_of_Responsibility;
+package singleton_and_chain_of_responsibility_lab_1;
 
 public class LeaveRequest {
 
@@ -28,3 +28,4 @@ public class LeaveRequest {
 
 
 }
+
