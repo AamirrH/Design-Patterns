@@ -17,13 +17,7 @@ public class LeaveManagementSystem {
         }
     }
 
-    public LeaveRequest createLeaveRequest(String name, int days){
-        LeaveRequest leaveRequest = new LeaveRequest();
-        leaveRequest.setName(name);
-        leaveRequest.setLeave_Days(days);
-        return leaveRequest;
 
-    }
 
     public void sendForApproval(LeaveRequest leaveRequest, BaseLeaveApprover baseLeaveApprover){
         baseLeaveApprover.approveLeave(leaveRequest);

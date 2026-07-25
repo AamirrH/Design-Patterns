@@ -3,10 +3,19 @@ package factory_and_proxy_design_pattern_lab_2;
 public class Main {
 
     public static void main(String[] args) {
+
         // Single instance: both variables point to the same object.
         LeaveManagementSystem leaveManagementSystem1 = LeaveManagementSystem.getInstance();
         LeaveManagementSystem leaveManagementSystem2 = LeaveManagementSystem.getInstance();
-        LeaveRequest leaveRequest1 = leaveManagementSystem1.createLeaveRequest("Aamir Hussain", 10);
+
+        // Leave Factory Creator
+        LeaveRequestCreator leaveRequestCreator = new ConcreteLeaveRequestCreator();
+        LeaveRequest leaveRequest1 = leaveRequestCreator.createLeaveRequest("Medical");
+        leaveRequest1.setDays(12);
+        leaveRequest1.setReason("Medical Issues");
+        leaveRequest1.setApplierName("Aamir Hussain");
+        leaveRequest1.applyLeave();
+
 
         // Approval hierarchy.
         BaseLeaveApprover director = new Director();

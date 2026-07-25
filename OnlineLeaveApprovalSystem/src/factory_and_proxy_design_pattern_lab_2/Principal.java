@@ -12,8 +12,8 @@ public class Principal implements BaseLeaveApprover {
     @Override
     public void approveLeave(LeaveRequest leaveRequest) {
 
-        if (leaveRequest.getLeave_Days()>=2 && leaveRequest.getLeave_Days()<=7){
-            System.out.println("Your "+ "("+leaveRequest.getName()+")"+ "leave has been approved by Principal");
+        if (leaveRequest.getDays()>=2 && leaveRequest.getDays()<=7){
+            System.out.println("Your "+ "("+leaveRequest.getApplierName()+")"+ "leave has been approved by Principal");
         }
 
         else{

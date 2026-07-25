@@ -11,8 +11,8 @@ public class HeadOfDepartment implements BaseLeaveApprover {
 
     @Override
     public void approveLeave(LeaveRequest leaveRequest) {
-        if(leaveRequest.getLeave_Days()<=2){
-            System.out.println("Your"+ "("+leaveRequest.getName()+")"+"leave has been approved by Head Of Department");
+        if(leaveRequest.getDays()<=2){
+            System.out.println("Your"+ "("+leaveRequest.getApplierName()+")"+"leave has been approved by Head Of Department");
         }
         else{
             higherApprover.approveLeave(leaveRequest);
