@@ -4,9 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Single instance: both variables point to the same object.
-        LeaveManagementSystem leaveManagementSystem1 = LeaveManagementSystem.getInstance();
-        LeaveManagementSystem leaveManagementSystem2 = LeaveManagementSystem.getInstance();
+        LeaveSystem leaveSystem = new LeaveManagementProxy("Aamir Hussain", "Aamir1");
+        leaveSystem.processLeave("Aamir Hussain", "Medical");
 
         // Leave Factory Creator
         LeaveRequestCreator leaveRequestCreator = new ConcreteLeaveRequestCreator();
@@ -22,6 +21,6 @@ public class Main {
         BaseLeaveApprover principal = new Principal(director);
         BaseLeaveApprover hod = new HeadOfDepartment(principal);
 
-        leaveManagementSystem1.sendForApproval(leaveRequest1, hod);
+        LeaveManagementSystem.getInstance().sendForApproval(leaveRequest1, hod);
     }
 }

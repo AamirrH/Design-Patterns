@@ -1,4 +1,4 @@
-package factory_and_proxy_design_pattern_lab_2;
+package abstract_factor_and_bridge_design_pattern;
 
 public class LeaveManagementSystem implements LeaveSystem {
 
