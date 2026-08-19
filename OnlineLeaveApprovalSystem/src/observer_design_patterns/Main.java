@@ -1,4 +1,6 @@
-package abstract_factor_and_bridge_design_pattern;
+package observer_design_patterns;
+
+import observer_design_patterns.database.LeaveRequestRepository;
 
 public class Main {
 
@@ -52,6 +54,31 @@ public class Main {
         emailNotification.notifyFaculty(permanentCasualLeave, "approved");
         smsNotification.notifyFaculty(permanentMedicalLeave, "approved");
         mobileAppNotification.notifyFaculty(contractOnDutyLeave, "approved");
+
+        // Practical - 4
+        LeaveRequestRepository leaveRequestRepository = new LeaveRequestRepository();
+        LeaveCoordinator leaveCoordinator = new LeaveCoordinator(leaveRequestRepository);
+        leaveCoordinator.addObserver(new HRDepartment());
+        leaveCoordinator.addObserver(new AccountDepartment());
+
+        leaveCoordinator.getIncomingLeaveRequest(permanentMedicalLeave);
+
+        if (leaveRequestRepository.isDatabaseAvailable()) {
+            leaveRequestRepository.createTables();
+
+            int facultyId = leaveRequestRepository.createFaculty("Aamir Hussain", "Permanent Faculty");
+            int leaveRequestId = leaveRequestRepository.createLeaveRequest(
+                    facultyId, "Medical", permanentMedicalLeave);
+
+            leaveRequestRepository.readLeaveRequests();
+            leaveCoordinator.approveLeave(permanentMedicalLeave);
+            leaveRequestRepository.readLeaveRequests();
+            leaveRequestRepository.deleteLeaveRequest(leaveRequestId);
+            leaveRequestRepository.readLeaveRequests();
+        } else {
+            System.out.println("Database demo skipped because SQLite JDBC driver is not available.");
+            leaveCoordinator.approveLeave(permanentMedicalLeave);
+        }
 
 
 
